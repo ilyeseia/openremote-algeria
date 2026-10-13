@@ -99,7 +99,8 @@ test("should update the document language and direction when the language change
 });
 
 test("should ship translation files for the supported languages only", () => {
-  assert.deepEqual(readdirSync(localesDir).sort(), [...SUPPORTED_LANGUAGES].sort());
+  const dirs = readdirSync(localesDir, { withFileTypes: true }).filter((e) => e.isDirectory()).map((e) => e.name);
+  assert.deepEqual(dirs.sort(), [...SUPPORTED_LANGUAGES].sort());
 });
 
 for (const lang of SUPPORTED_LANGUAGES.filter((l) => l !== "en")) {
