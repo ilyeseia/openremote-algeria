@@ -522,6 +522,9 @@ export class OrApp<S extends AppStateKeyed> extends OrElement {
         this._completeOfflineFallbackTimer(); // complete fallback timer
         this._store.dispatch(setOffline(false));
       }
+    } else if (event === OREvent.TRANSLATE_LANGUAGE_CHANGED) {
+      // The window title is built from translated names, so it follows the language without a reload
+      this.updateWindowTitle();
     }
   }
 
