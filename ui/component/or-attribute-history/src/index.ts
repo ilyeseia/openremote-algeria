@@ -247,7 +247,7 @@ const style = css`
 
   #ending-date {
     width: 280px;
-    padding-left: 5px;
+    padding-inline-start: 5px;
   }
 
   #chart {

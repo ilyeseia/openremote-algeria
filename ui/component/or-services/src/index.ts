@@ -84,7 +84,7 @@ const serviceStyles = css`
   }
 
   #fullscreen-header-title > or-icon {
-    margin-right: 10px;
+    margin-inline-end: 10px;
     cursor: pointer;
   }
 

@@ -193,6 +193,22 @@ export class OrIcon extends OrElement {
           display: none;
         }
 
+        /* Mirror icons that point in a reading direction when the document is right-to-left */
+        :host(:dir(rtl)[icon*="chevron-"]),
+        :host(:dir(rtl)[icon*="arrow-left"]),
+        :host(:dir(rtl)[icon*="arrow-right"]),
+        :host(:dir(rtl)[icon*="menu-left"]),
+        :host(:dir(rtl)[icon*="menu-right"]),
+        :host(:dir(rtl)[icon*="page-first"]),
+        :host(:dir(rtl)[icon*="page-last"]),
+        :host(:dir(rtl)[icon*="skip-next"]),
+        :host(:dir(rtl)[icon*="skip-previous"]),
+        :host(:dir(rtl)[icon*="exit-to-app"]),
+        :host(:dir(rtl)[icon*="logout"]),
+        :host(:dir(rtl)[icon*="login"]) {
+          transform: scaleX(-1);
+        }
+
         svg {
           pointer-events: none;
           display: block;

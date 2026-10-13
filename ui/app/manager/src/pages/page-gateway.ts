@@ -115,7 +115,7 @@ export class PageGateway extends Page<AppStateKeyed> {
       #title > div > or-icon {
         --or-icon-width: 20px;
         --or-icon-height: 20px;
-        margin-left: 14px;
+        margin-inline-start: 14px;
       }
 
       or-panel {
@@ -129,7 +129,7 @@ export class PageGateway extends Page<AppStateKeyed> {
       .gateway-status-header {
         position: absolute;
         top: 18px;
-        right: 25px;
+        inset-inline-end: 25px;
         font-weight: bold;
         display: flex;
       }
@@ -157,7 +157,7 @@ export class PageGateway extends Page<AppStateKeyed> {
       }
 
       .gateway-sharing-control-child {
-        margin-left: 24px;
+        margin-inline-start: 24px;
         display: flex;
         gap: 10px;
         align-items: center;
@@ -285,7 +285,7 @@ export class PageGateway extends Page<AppStateKeyed> {
             () => html`
               <div class="gateway-status-header">
                 <or-translate value="status" style="font-weight: normal;"></or-translate>:
-                <span style="margin-left: 10px;">${this._connectionStatus}</span>
+                <span style="margin-inline-start: 10px;">${this._connectionStatus}</span>
               </div>
             `
           )}

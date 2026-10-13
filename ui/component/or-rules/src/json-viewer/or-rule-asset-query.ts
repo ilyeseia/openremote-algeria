@@ -118,7 +118,7 @@ const style = css`
     min-width: 200px;
   }
   .button-clear {
-    margin-left: auto;
+    margin-inline-start: auto;
   }
   .attribute:hover .button-clear {
     visibility: visible;

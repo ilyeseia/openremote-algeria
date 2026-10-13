@@ -668,7 +668,7 @@ export class OrAssetTree extends subscribe(manager)(OrElement) {
 
               <div style="margin-top: 10px;">
                 <or-vaadin-button
-                  style="float: left"
+                  style="float: inline-start"
                   @click=${() => {
                     // Wipe the current value and hide the clear button
                     this._filterInput.clear();
@@ -689,7 +689,7 @@ export class OrAssetTree extends subscribe(manager)(OrElement) {
                   <or-translate value="filter.clear"></or-translate>
                 </or-vaadin-button>
                 <or-vaadin-button
-                  style="float: right;"
+                  style="float: inline-end;"
                   theme="primary"
                   @click=${() => {
                     this._filterFromSettings();
@@ -2348,7 +2348,7 @@ export class OrAssetTree extends subscribe(manager)(OrElement) {
           @dragstart="${(ev: DragEvent) => this._onDragStart(ev)}"
           @dragend="${(ev: DragEvent) => this._onDragEnd(ev)}"
           @dragover="${(ev: DragEvent) => this._onDragOver(ev)}"
-          style="padding-left: ${level * 22}px"
+          style="padding-inline-start: ${level * 22}px"
         >
           <div class="node-name">
             <div class="expander" ?data-expandable="${treeNode.expandable}"></div>
@@ -2383,7 +2383,7 @@ export class OrAssetTree extends subscribe(manager)(OrElement) {
             treeNode.asset?.id && this._incompleteParentIds.includes(treeNode.asset.id),
             () => html`
               <li class="asset-list-element loadmore-element">
-                <or-vaadin-button style="padding-left: ${(level + 1) * 22}px;">
+                <or-vaadin-button style="padding-inline-start: ${(level + 1) * 22}px;">
                   <or-translate value="loadMore"></or-translate>
                 </or-vaadin-button>
               </li>

@@ -18,6 +18,7 @@
  */
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { type AppConfig, appReducer, OrApp, type PageProvider, type RealmAppConfig } from "@openremote/or-app";
+import { resolveLanguage } from "@openremote/core";
 import { pageViewProvider } from "./pages/page-view";
 import type { ManagerAppConfig } from "@openremote/model";
 
@@ -111,16 +112,13 @@ fetch(configURL)
       manager.console
         .retrieveData("LANGUAGE")
         .then((value: string | undefined) => {
-          manager.language = value || orAppConfig.realms[manager.displayRealm].language;
+          manager.language = resolveLanguage(value, orAppConfig.realms[manager.displayRealm]?.language);
         })
         .catch(() => {
-          if (orAppConfig.realms[manager.displayRealm]) {
-            manager.language = orAppConfig.realms[manager.displayRealm].language;
-          } else if (orAppConfig.realms.default) {
-            manager.language = orAppConfig.realms.default.language;
-          } else {
-            manager.language = "en";
-          }
+          manager.language = resolveLanguage(
+            orAppConfig.realms[manager.displayRealm]?.language,
+            orAppConfig.realms.default?.language
+          );
         });
 
       // Add insights page with correct parameters

@@ -431,7 +431,7 @@ export class LayoutVerticalElement extends LayoutBaseElement<VerticalLayout | Gr
                             align-items: center;
                           }
                           #schema-picker > or-translate {
-                            padding-right: 20px;
+                            padding-inline-end: 20px;
                           }
                           #schema-picker > or-mwc-input {
                             flex: 1;

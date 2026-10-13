@@ -55,7 +55,7 @@ export class FlowNode extends SelectableElement {
           font-size: 0.8em;
           margin-bottom: 0;
           margin-top: 3px;
-          text-align: left;
+          text-align: start;
         }
       `,
     ];

@@ -160,7 +160,7 @@ const style = css`
   }
 
   .mdc-list-item__graphic {
-    margin-right: 16px;
+    margin-inline-end: 16px;
   }
 
   a {

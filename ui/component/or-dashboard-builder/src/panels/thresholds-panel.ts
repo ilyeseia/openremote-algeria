@@ -186,7 +186,7 @@ export class ThresholdsPanel extends OrElement {
                         ${
                           index === 0
                             ? html`
-                                <button class="button-clear" style="margin-left: 8px;">
+                                <button class="button-clear" style="margin-inline-start: 8px;">
                                   <or-icon
                                     icon="lock"
                                     style="--or-icon-fill: var(--or-app-color5, ${unsafeCSS(DefaultColor5)});"
@@ -196,7 +196,7 @@ export class ThresholdsPanel extends OrElement {
                             : html`
                                 <button
                                   class="button-clear"
-                                  style="margin-left: 8px;"
+                                  style="margin-inline-start: 8px;"
                                   @click="${() => {
                                     this.removeThreshold(threshold);
                                   }}"
@@ -274,7 +274,7 @@ export class ThresholdsPanel extends OrElement {
                       ></or-vaadin-text-field>
                       <button
                         class="button-clear"
-                        style="margin-left: 8px;"
+                        style="margin-inline-start: 8px;"
                         @click="${() => {
                           this.removeThreshold(threshold);
                         }}"

@@ -109,17 +109,17 @@ registerStyles(
       -webkit-mask: none;
       filter: none;
       transform: translateY(-50%);
-      transition: left var(--or-toggle-transition-duration, 0.15s) ease-in-out;
+      transition: inset-inline-start var(--or-toggle-transition-duration, 0.15s) ease-in-out;
     }
 
     :host(:not([checked])) [part="checkbox"]::after {
       opacity: 1;
-      left: var(--or-toggle-knob-inset);
+      inset-inline-start: var(--or-toggle-knob-inset);
     }
 
     :host([checked]) [part="checkbox"]::after {
       opacity: 1;
-      left: calc(var(--or-toggle-track-width) - var(--or-toggle-knob-size) - var(--or-toggle-knob-inset));
+      inset-inline-start: calc(var(--or-toggle-track-width) - var(--or-toggle-knob-size) - var(--or-toggle-knob-inset));
     }
 
     :host([focus-ring]) [part="checkbox"] {

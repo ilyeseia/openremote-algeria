@@ -49,18 +49,18 @@ export const style = css`
     color: var(--or-app-color3, ${unsafeCSS(DefaultColor3)});
   }
   #fullscreen-header-title > or-mwc-input {
-    margin-right: 4px;
+    margin-inline-end: 4px;
     --or-icon-fill: ${unsafeCSS(DefaultColor3)};
   }
   #fullscreen-header-actions {
     flex: 1 1 auto;
-    text-align: right;
+    text-align: end;
   }
   #fullscreen-header-actions-content {
     display: flex;
     flex-direction: row;
     align-items: center;
-    float: right;
+    float: inline-end;
   }
   #dashboard-error-text {
     display: flex;

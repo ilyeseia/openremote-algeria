@@ -159,7 +159,7 @@ export class OrAssetTypeAttributePicker extends AttributePicker {
         class="row"
         style="display: flex;height: 600px;width: 800px;border-top: 1px solid ${unsafeCSS(DefaultColor5)};"
       >
-        <div class="col" style="width: 320px;overflow: auto;border-right: 1px solid ${unsafeCSS(DefaultColor5)};">
+        <div class="col" style="width: 320px;overflow: auto;border-inline-end: 1px solid ${unsafeCSS(DefaultColor5)};">
           <or-vaadin-list-box
             @selected-changed=${(ev: CustomEvent) => this._onAssetTypeItemClick(assetTypeItems[ev.detail.value])}
           >

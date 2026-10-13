@@ -165,17 +165,17 @@ export class OrHeader extends OrElement {
 
       #mobile-right {
         display: flex;
-        padding-right: 4px;
+        padding-inline-end: 4px;
         gap: 4px;
         align-items: center;
-        margin-left: auto;
+        margin-inline-start: auto;
         --or-icon-height: calc(var(--internal-or-header-item-size) - 8px);
         --or-icon-width: calc(var(--internal-or-header-item-size) - 8px);
       }
 
       #desktop-right {
-        margin-left: auto;
-        padding-right: 10px;
+        margin-inline-start: auto;
+        padding-inline-end: 10px;
         display: none;
       }
 
@@ -199,7 +199,7 @@ export class OrHeader extends OrElement {
         opacity: 1;
       }
       #desktop-left .menu-item or-icon {
-        margin-right: 10px;
+        margin-inline-end: 10px;
       }
       #desktop-left .menu-item {
         display: none;

@@ -1331,5 +1331,10 @@
         }
       }
     }
-  }
+  },
+  "flowEditorNew": "New",
+  "flowEditorSaveAs": "Save as...",
+  "rulesLoadFailed": "Failed to load rules",
+  "iframeLoadFailed": "Failed to load iframe",
+  "headers": "Headers"
 }

@@ -84,6 +84,6 @@ export const buttonStyle = css`
   }
 
   .add-buttons-container > button > or-icon {
-    margin-right: 5px;
+    margin-inline-end: 5px;
   }
 `;

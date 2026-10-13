@@ -62,7 +62,7 @@ const style = css`
 
   .rule-condition {
     display: flex;
-    padding-right: 5px;
+    padding-inline-end: 5px;
   }
 
   .rule-condition > * {
@@ -78,7 +78,7 @@ const style = css`
   }
 
   .rule-group-item > or-icon {
-    padding-left: 17px;
+    padding-inline-start: 17px;
   }
 
   or-icon.small {
@@ -93,7 +93,7 @@ const style = css`
 
   or-panel > .remove-button {
     position: absolute;
-    right: 0;
+    inset-inline-end: 0;
     top: 0;
     width: 24px;
     height: 24px;
@@ -115,7 +115,7 @@ const style = css`
   }
 
   .add-button-wrapper > * {
-    margin-right: 6px;
+    margin-inline-end: 6px;
   }
 
   strong {

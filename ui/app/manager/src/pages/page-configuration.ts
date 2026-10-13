@@ -103,20 +103,20 @@ export class PageConfiguration extends Page<AppStateKeyed> {
       }
 
       #header-title > or-icon {
-        margin-right: 10px;
-        margin-left: 14px;
+        margin-inline-end: 10px;
+        margin-inline-start: 14px;
       }
 
       #header-actions #save-btn {
-        margin-left: 12px;
+        margin-inline-start: 12px;
       }
 
       or-icon {
         vertical-align: middle;
         --or-icon-width: 20px;
         --or-icon-height: 20px;
-        margin-right: 2px;
-        margin-left: -5px;
+        margin-inline-end: 2px;
+        margin-inline-start: -5px;
       }
 
       .notFound-container {
@@ -127,8 +127,8 @@ export class PageConfiguration extends Page<AppStateKeyed> {
 
       @media screen and (max-width: 768px) {
         or-panel {
-          border-left: 0px;
-          border-right: 0px;
+          border-inline-start: 0px;
+          border-inline-end: 0px;
           width: 100%;
           --or-panel-border-radius: 0;
         }

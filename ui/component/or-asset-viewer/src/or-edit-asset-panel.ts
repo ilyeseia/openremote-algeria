@@ -71,7 +71,7 @@ const style = css`
   }
 
   #change-parent-btn {
-    margin-left: 20px;
+    margin-inline-start: 20px;
   }
 
   .mdc-data-table__row:hover {
@@ -95,7 +95,7 @@ const style = css`
   }
 
   .mdc-data-table__header-cell:first-child {
-    padding-left: 36px;
+    padding-inline-start: 36px;
   }
   .expander-cell {
     --or-icon-width: 20px;
@@ -107,8 +107,8 @@ const style = css`
   }
   .expander-cell > or-icon {
     vertical-align: middle;
-    margin-right: 6px;
-    margin-left: -5px;
+    margin-inline-end: 6px;
+    margin-inline-start: -5px;
   }
   .padded-cell {
     padding: 10px 16px;
@@ -117,9 +117,9 @@ const style = css`
     width: 100%;
   }
   .actions-cell {
-    text-align: right;
+    text-align: end;
     width: 40px;
-    padding-right: 4px;
+    padding-inline-end: 4px;
   }
   .meta-item-container {
     padding: 0 4px 0 24px;
@@ -353,8 +353,8 @@ export class OrEditAssetPanel extends OrElement {
               <th class="mdc-data-table__header-cell" role="columnheader" scope="col">
                 <or-translate value="value"></or-translate>
               </th>
-              <th class="mdc-data-table__header-cell" role="columnheader" scope="col" style="padding-right:8px;">
-                <or-vaadin-button style="float: right;" @click=${expandAllToggle}>
+              <th class="mdc-data-table__header-cell" role="columnheader" scope="col" style="padding-inline-end:8px;">
+                <or-vaadin-button style="float: inline-end;" @click=${expandAllToggle}>
                   <or-translate value="expandAll"></or-translate>
                 </or-vaadin-button>
               </th>

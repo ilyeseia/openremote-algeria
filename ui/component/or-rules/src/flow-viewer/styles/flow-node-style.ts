@@ -76,7 +76,7 @@ export const FlowNodeStyle = css`
   }
   .title.input {
     background: var(--input-color);
-    text-align: right;
+    text-align: end;
   }
   .title.processor {
     background: var(--processor-color);
@@ -84,7 +84,7 @@ export const FlowNodeStyle = css`
   }
   .title.output {
     background: var(--output-color);
-    text-align: left;
+    text-align: start;
   }
   .title.minimal {
     background: transparent;

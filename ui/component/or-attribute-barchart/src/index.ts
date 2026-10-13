@@ -172,11 +172,11 @@ const style = css`
   }
 
   #period-dropdown-controls > *:first-child {
-    margin-right: -2px;
+    margin-inline-end: -2px;
   }
 
   #period-dropdown-controls > *:last-child {
-    margin-left: -2px;
+    margin-inline-start: -2px;
   }
 
   .navigate {
@@ -228,7 +228,7 @@ const style = css`
     width: 12px;
     height: 12px;
     border-radius: 7px;
-    margin-right: 10px;
+    margin-inline-end: 10px;
   }
 
   .attribute-list-item .button.delete {
@@ -256,7 +256,7 @@ const style = css`
     display: flex;
     flex-direction: column;
     margin-top: 10px;
-    margin-right: -4px;
+    margin-inline-end: -4px;
   }
 
   #chart {
@@ -283,7 +283,7 @@ const style = css`
 
     #controls {
       min-width: 100%;
-      padding-left: 0;
+      padding-inline-start: 0;
     }
 
     .interval-controls,
@@ -701,7 +701,7 @@ export class OrAttributeBarChart extends OrElement {
           @item-selected=${(ev: CustomEvent) => (this.interval = ev.detail.value.value)}
         ></or-vaadin-menu-bar>
       </div>
-      <div class="navigate" style="text-align: right">
+      <div class="navigate" style="text-align: end">
         <!-- Scroll left button -->
         <or-icon
           class="button button-icon"
@@ -743,18 +743,18 @@ export class OrAttributeBarChart extends OrElement {
 
   protected _getTimeframeStatusTemplate(timeframe = this.timeframe): TemplateResult {
     return html`
-      <div style="margin-left: 18px; font-size: 12px; display: flex; justify-content: flex-end;">
-        <table style="text-align: right;">
+      <div style="margin-inline-start: 18px; font-size: 12px; display: flex; justify-content: flex-end;">
+        <table style="text-align: end;">
           <thead>
             <tr>
-              <th style="font-weight: normal; text-align: right;"><or-translate value="from"></or-translate></th>
-              <th style="font-weight: normal; text-align: right;">${moment(timeframe![0]).format("lll")}</th>
+              <th style="font-weight: normal; text-align: end;"><or-translate value="from"></or-translate></th>
+              <th style="font-weight: normal; text-align: end;">${moment(timeframe![0]).format("lll")}</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style="text-align: right;"><or-translate value="to"></or-translate></td>
-              <td style="text-align: right;">${moment(timeframe![1]).format("lll")}</td>
+              <td style="text-align: end;"><or-translate value="to"></or-translate></td>
+              <td style="text-align: end;">${moment(timeframe![1]).format("lll")}</td>
             </tr>
           </tbody>
         </table>
@@ -781,7 +781,7 @@ export class OrAttributeBarChart extends OrElement {
               // Broken reference: kept in the legend to indicate the config is broken
               return html`
                 <div class="attribute-list-item ${this.denseLegend ? "attribute-list-item-dense" : undefined}">
-                  <span style="margin-right: 10px; --or-icon-width: 20px;"
+                  <span style="margin-inline-end: 10px; --or-icon-width: 20px;"
                     ><or-icon icon="link-variant-off"></or-icon
                   ></span>
                   <div
@@ -827,14 +827,14 @@ export class OrAttributeBarChart extends OrElement {
                 @mouseenter="${() => this._addDatasetHighlight({ id: this.assets[assetIndex].id, name: attr.name })}"
                 @mouseleave="${() => this._removeDatasetHighlights()}"
               >
-                <span style="margin-right: 10px; --or-icon-width: 20px;"
+                <span style="margin-inline-end: 10px; --or-icon-width: 20px;"
                   >${getAssetDescriptorIconTemplate(AssetModelUtil.getAssetDescriptor(this.assets[assetIndex].type), undefined, undefined, bgColor.split("#")[1])}</span
                 >
                 <div
                   class="attribute-list-item-label ${this.denseLegend ? "attribute-list-item-label-dense" : undefined}"
                 >
                   <div style="display: flex; justify-content: space-between;">
-                    <span style="font-size:12px; ${this.denseLegend ? "margin-right: 8px" : undefined}"
+                    <span style="font-size:12px; ${this.denseLegend ? "margin-inline-end: 8px" : undefined}"
                       >${this.assets[assetIndex].name}</span
                     >
                     ${when(axisNote, () => html`<span style="font-size:12px; color:grey">(${axisNote})</span>`)}

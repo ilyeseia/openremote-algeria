@@ -100,8 +100,8 @@ export class PageUsers extends Page<AppStateKeyed> {
         }
 
         #title or-icon {
-          margin-right: 10px;
-          margin-left: 14px;
+          margin-inline-end: 10px;
+          margin-inline-start: 14px;
         }
 
         .panel {
@@ -145,8 +145,8 @@ export class PageUsers extends Page<AppStateKeyed> {
           vertical-align: middle;
           --or-icon-width: 20px;
           --or-icon-height: 20px;
-          margin-right: 2px;
-          margin-left: -5px;
+          margin-inline-end: 2px;
+          margin-inline-start: -5px;
         }
 
         .row {
@@ -212,8 +212,8 @@ export class PageUsers extends Page<AppStateKeyed> {
 
           .panel {
             border-radius: 0;
-            border-left: 0px;
-            border-right: 0px;
+            border-inline-start: 0px;
+            border-inline-end: 0px;
           }
         }
       `,
@@ -602,7 +602,7 @@ export class PageUsers extends Page<AppStateKeyed> {
             <div class="breadcrumb-container">
               <span class="breadcrumb-clickable" @click="${() => this.reset()}">${i18next.t("user_plural")}</span>
               <or-icon class="breadcrumb-arrow" icon="chevron-right"></or-icon>
-              <span style="margin-left: 2px;"
+              <span style="margin-inline-start: 2px;"
                 >${index !== undefined ? mergedUserList[index]?.username : this.creationState.userModel.serviceAccount ? i18next.t("creating_serviceUser") : i18next.t("creating_regularUser")}</span
               >
             </div>
@@ -1261,7 +1261,7 @@ export class PageUsers extends Page<AppStateKeyed> {
                     <!-- Asset-User links -->
                     <div>
                         <or-translate value="linkedAssets"></or-translate>
-                        <or-vaadin-button ?disabled=${readonly || isGatewayServiceUser} style="margin-left: 4px;"
+                        <or-vaadin-button ?disabled=${readonly || isGatewayServiceUser} style="margin-inline-start: 4px;"
                                           @click=${(ev: Event) => this._openAssetSelector(ev, user, readonly, suffix)}>
                             <span>${i18next.t("selectRestrictedAssets", { number: user.userAssetLinks.length })}</span>
                         </or-vaadin-button>

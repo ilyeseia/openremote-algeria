@@ -116,7 +116,7 @@ const style = css`
   }
 
   #live-button {
-    margin-right: 40px;
+    margin-inline-end: 40px;
   }
 
   #log-controls,

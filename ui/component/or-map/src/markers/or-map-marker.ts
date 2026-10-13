@@ -108,7 +108,7 @@ export class OrMapMarker extends OrElement {
       .direction-circle {
         position: absolute;
         margin-top: -15px;
-        margin-left: -15px;
+        margin-inline-start: -15px;
         width: 30px;
         height: 30px;
       }
@@ -133,7 +133,7 @@ export class OrMapMarker extends OrElement {
       }
       .active .direction-circle {
         margin-top: -20px;
-        margin-left: -20px;
+        margin-inline-start: -20px;
         width: 40px;
         height: 40px;
       }

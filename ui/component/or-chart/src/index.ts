@@ -187,7 +187,7 @@ const style = css`
     .line-label {
         border-width: 1px;
         border-color: var(--or-app-color3);
-        margin-right: 5px;
+        margin-inline-end: 5px;
     }
 
     .line-label.solid {
@@ -258,11 +258,11 @@ const style = css`
     }
 
     #period-dropdown-controls > *:first-child {
-        margin-right: -2px;
+        margin-inline-end: -2px;
     }
 
     #period-dropdown-controls > *:last-child {
-        margin-left: -2px;
+        margin-inline-start: -2px;
     }
     
 
@@ -327,7 +327,7 @@ const style = css`
         width: 12px;
         height: 12px;
         border-radius: 7px;
-        margin-right: 10px;
+        margin-inline-end: 10px;
     }
 
     .attribute-list-item .button.delete {
@@ -370,7 +370,7 @@ const style = css`
 
         #controls {
             min-width: 100%;
-            padding-left: 0;
+            padding-inline-start: 0;
         }
         #period-controls {
             flex-direction: row;
@@ -817,7 +817,7 @@ export class OrChart extends translate(i18next)(OrElement) {
                       this.timeframe
                         ? html`
                             <div style="font-size: 12px; display: flex; justify-content: flex-end;">
-                              <table style="text-align: right;">
+                              <table style="text-align: end;">
                                 <thead>
                                   <tr>
                                     <th style="font-weight: normal;">${i18next.t("from")}:</th>
@@ -898,7 +898,7 @@ export class OrChart extends translate(i18next)(OrElement) {
                                       <div
                                         class="attribute-list-item ${this.denseLegend ? "attribute-list-item-dense" : undefined}"
                                       >
-                                        <span style="margin-right: 10px; --or-icon-width: 20px;"
+                                        <span style="margin-inline-end: 10px; --or-icon-width: 20px;"
                                           ><or-icon icon="link-variant-off"></or-icon
                                         ></span>
                                         <div
@@ -920,7 +920,7 @@ export class OrChart extends translate(i18next)(OrElement) {
                                         @mouseenter="${() => this._addDatasetHighlight({ id: this.assets[item.assetIndex]!.id, name: item.attr.name })}"
                                         @mouseleave="${() => this._removeDatasetHighlights()}"
                                       >
-                                        <span style="margin-right: 10px; --or-icon-width: 20px;"
+                                        <span style="margin-inline-end: 10px; --or-icon-width: 20px;"
                                           >${getAssetDescriptorIconTemplate(AssetModelUtil.getAssetDescriptor(this.assets[item.assetIndex]!.type!), undefined, undefined, item.bgColor.split("#")[1])}</span
                                         >
                                         <div
@@ -928,7 +928,7 @@ export class OrChart extends translate(i18next)(OrElement) {
                                         >
                                           <div style="display: flex; gap: 4px;">
                                             <span
-                                              style="font-size:12px; ${this.denseLegend ? "margin-right: 8px" : undefined}"
+                                              style="font-size:12px; ${this.denseLegend ? "margin-inline-end: 8px" : undefined}"
                                               >${this.assets[item.assetIndex].name}</span
                                             >
                                             ${when(item.axisNote, () => html`<span style="font-size:12px; color:grey">(${item.axisNote})</span>`)}
@@ -1931,7 +1931,7 @@ export class OrChart extends translate(i18next)(OrElement) {
         if (displayValue != null) {
           tooltipArray.push({
             value: displayValue,
-            text: `<div><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color: ${dataset.lineStyle?.color}"></span> ${name}: <b>${displayValue}${dataset.unit ?? ""}</b></div>`,
+            text: `<div><span style="display:inline-block;margin-inline-end:5px;border-radius:10px;width:9px;height:9px;background-color: ${dataset.lineStyle?.color}"></span> ${name}: <b>${displayValue}${dataset.unit ?? ""}</b></div>`,
           });
         }
       }

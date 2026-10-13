@@ -58,7 +58,7 @@ export class TopBar extends translate(i18next)(OrElement) {
         font-weight: bold;
       }
       .right {
-        margin-left: auto;
+        margin-inline-start: auto;
       }
     `;
   }
@@ -85,15 +85,15 @@ export class TopBar extends translate(i18next)(OrElement) {
             project.clear(true);
           }
         }}"
-        >New</a
+        >${i18next.t("flowEditorNew")}</a
       >
       <a class="button" @click="${this.save}"
         >${i18next.t("save")}
         <i>${Utilities.ellipsis(project.existingFlowRuleName!)}</i
         >${project.unsavedState && project.existingFlowRuleId !== -1 ? "*" : ""}</a
       >
-      ${project.existingFlowRuleId === -1 ? null : html`<a @click="${this.showSaveAsDialog}" class="button">Save as...</a>`}
-      <a class="button" @click="${this.showRuleBrowser}">Open</a>
+      ${project.existingFlowRuleId === -1 ? null : html`<a @click="${this.showSaveAsDialog}" class="button">${i18next.t("flowEditorSaveAs")}</a>`}
+      <a class="button" @click="${this.showRuleBrowser}">${i18next.t("open")}</a>
       <a
         class="button right"
         @click="${() => {
@@ -148,13 +148,13 @@ export class TopBar extends translate(i18next)(OrElement) {
         ></or-mwc-input>
         <div>
           <or-mwc-input
-            style="text-align: left; margin-right: 10px"
+            style="text-align: start; margin-inline-end: 10px"
             type="${InputType.BUTTON}"
             label="${i18next.t("cancel", "Cancel")!}"
             @or-mwc-input-changed="${modal.element.close}"
           ></or-mwc-input>
           <or-mwc-input
-            style="text-align: right"
+            style="text-align: end"
             type="${InputType.BUTTON}"
             unelevated
             label="${i18next.t("save", "Save")!}"

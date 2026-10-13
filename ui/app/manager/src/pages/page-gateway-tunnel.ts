@@ -66,8 +66,8 @@ const styling = css`
   }
 
   #title > or-icon {
-    margin-right: 10px;
-    margin-left: 14px;
+    margin-inline-end: 10px;
+    margin-inline-start: 14px;
   }
 
   .panel {

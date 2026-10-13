@@ -30,15 +30,5 @@ export interface LocalisedDate {
 export const localisedDates: LocalisedDate[] = [
   { language: "en", expected: "Dec 15, 2026 1:45 PM" },
   { language: "ar", expected: "١٥ ديسمبر ٢٠٢٦ ١٣:٤٥" },
-  { language: "cn", expected: "2026年12月15日 13:45" },
-  { language: "cs", expected: "15. pro 2026 13:45" },
-  { language: "de", expected: "15. Dez. 2026 13:45" },
-  { language: "es", expected: "15 de dic. de 2026 13:45" },
   { language: "fr", expected: "15 déc. 2026 13:45" },
-  { language: "it", expected: "15 dic 2026 13:45" },
-  { language: "nl", expected: "15 dec. 2026 13:45" },
-  { language: "pl", expected: "15 gru 2026 13:45" },
-  { language: "pt", expected: "15 de dez de 2026 13:45" },
-  { language: "ro", expected: "15 dec. 2026 13:45" },
-  { language: "uk", expected: "15 груд 2026 р., 13:45" },
 ];

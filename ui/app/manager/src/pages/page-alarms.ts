@@ -185,7 +185,7 @@ export class PageAlarms extends Page<AppStateKeyed> {
         }
 
         .controls-left > * {
-          padding-right: 20px;
+          padding-inline-end: 20px;
         }
 
         h5 {
@@ -200,8 +200,8 @@ export class PageAlarms extends Page<AppStateKeyed> {
         }
 
         #table-container {
-          margin-left: 20px;
-          margin-right: 20px;
+          margin-inline-start: 20px;
+          margin-inline-end: 20px;
         }
 
         .row {
@@ -442,7 +442,7 @@ export class PageAlarms extends Page<AppStateKeyed> {
               <!-- Actions when alarm is selected -->
               <div
                 class="${this.creationState || this.alarm || assignOnly || readonly ? "hidden" : "panel-title"}"
-                style="justify-content: flex-end; margin-right: 12px;"
+                style="justify-content: flex-end; margin-inline-end: 12px;"
               >
                 <or-vaadin-button
                   theme="icon"
@@ -695,13 +695,13 @@ export class PageAlarms extends Page<AppStateKeyed> {
                     <span class="breadcrumb-clickable" @click="${() => this.reset()}"
                     ><or-translate value="alarm.alarm_plural"/></span>
                     <or-icon class="breadcrumb-arrow" icon="chevron-right"></or-icon>
-                    <span style="margin-left: 2px;"
+                    <span style="margin-inline-start: 2px;"
                     >${
                       this.alarm != undefined ? this.alarm.id : html` <or-translate value="alarm.creatingAlarm" />`
                     }</span>
                 </div>
                 <div id="title-alarm">
-                    <or-icon icon="bell-outline" style="margin-right: 10px; margin-left: 14px;"></or-icon>
+                    <or-icon icon="bell-outline" style="margin-inline-end: 10px; margin-inline-start: 14px;"></or-icon>
                     <span>${
                       this.alarm != undefined ? this.alarm.title : html` <or-translate value="alarm.alarm_plural" />`
                     }</span>
@@ -778,7 +778,7 @@ export class PageAlarms extends Page<AppStateKeyed> {
                             </or-vaadin-select>
                             <div>
                                 <span><or-translate value="linkedAssets"></or-translate>:</span>
-                                <or-vaadin-button ?disabled=${!manager.hasRole(ClientRole.WRITE_ALARMS)} style="margin-left: 4px;"
+                                <or-vaadin-button ?disabled=${!manager.hasRole(ClientRole.WRITE_ALARMS)} style="margin-inline-start: 4px;"
                                                   @click=${(ev: Event) => this._openAssetSelector(ev, alarm, readonly)}>
                                     <span>${i18next.t("selectRestrictedAssets", { number: alarm.alarmAssetLinks?.length })}</span>
                                 </or-vaadin-button>

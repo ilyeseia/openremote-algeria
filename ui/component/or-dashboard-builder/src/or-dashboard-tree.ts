@@ -37,7 +37,7 @@ const treeStyling = css`
   #header-btns {
     display: flex;
     flex-direction: row;
-    padding-right: 5px;
+    padding-inline-end: 5px;
   }
 
   #content {
@@ -47,7 +47,7 @@ const treeStyling = css`
 
   .node-container {
     align-items: center;
-    padding-left: 10px;
+    padding-inline-start: 10px;
   }
 `;
 

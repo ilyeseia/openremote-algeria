@@ -176,7 +176,7 @@ export class OrMapPresetFilter extends OrElement {
             display: flex;
             align-items: center;
             gap: calc(var(--lumo-space-l) + var(--lumo-border-radius-m) / 4);
-            padding-right: 4px;
+            padding-inline-end: 4px;
         }
         .filter-item__label {
             flex: 1;

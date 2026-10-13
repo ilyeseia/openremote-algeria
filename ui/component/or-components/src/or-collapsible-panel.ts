@@ -96,8 +96,8 @@ const style = css`
 
   #indicator {
     align-self: center;
-    margin-right: 6px;
-    margin-left: -5px;
+    margin-inline-end: 6px;
+    margin-inline-start: -5px;
   }
 
   #content {
@@ -114,8 +114,8 @@ const style = css`
     vertical-align: middle;
     --or-icon-width: 20px;
     --or-icon-height: 20px;
-    margin-right: 2px;
-    margin-left: -5px;
+    margin-inline-end: 2px;
+    margin-inline-start: -5px;
   }
 `;
 

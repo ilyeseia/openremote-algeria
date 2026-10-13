@@ -21,10 +21,10 @@
 @media lumo_components_checkbox-group-internal {
   :host {
     [part="group-field"] ::slotted([theme~="button"]) {
-      margin-left: 6px;
+      margin-inline-start: 6px;
     }
     [part="group-field"] ::slotted([theme~="button"]:first-child) {
-      margin-left: 0;
+      margin-inline-start: 0;
     }
   }
 }

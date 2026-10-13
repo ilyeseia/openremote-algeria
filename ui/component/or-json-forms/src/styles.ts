@@ -46,7 +46,7 @@ export const baseStyle = css`
   }
 
   .no-match-container > *:not(:last-child) {
-    margin-right: 10px;
+    margin-inline-end: 10px;
   }
 
   .button-clear {
@@ -75,14 +75,14 @@ export const baseStyle = css`
 
   #errors {
     color: red;
-    margin-right: 10px;
+    margin-inline-end: 10px;
     flex: 1;
     display: flex;
     align-items: center;
   }
 
   #errors > or-icon {
-    margin-right: 5px;
+    margin-inline-end: 5px;
   }
 `;
 
@@ -98,7 +98,7 @@ export const panelStyle = css`
     border: 1px solid var(--or-app-color4, green);
     border-radius: 3px;
     padding: 3px;
-    margin-left: 10px;
+    margin-inline-start: 10px;
   }
 
   #header-buttons {
@@ -153,7 +153,7 @@ export const addItemOrParameterDialogStyle = html`
       min-width: 150px;
       max-width: 300px;
       flex: 0 0 40%;
-      border-right: 1px solid var(--or-app-color5, #ccc);
+      border-inline-end: 1px solid var(--or-app-color5, #ccc);
     }
     #parameter-list {
       display: block;

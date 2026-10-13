@@ -113,7 +113,7 @@ const style = css`
   }
 
   .sort-button {
-    padding-right: 0;
+    padding-inline-end: 0;
     border: none;
     color: ${unsafeCSS(DefaultColor3)};
     background-color: transparent;
@@ -121,7 +121,7 @@ const style = css`
   }
 
   .sort-button-reverse {
-    padding-left: 0;
+    padding-inline-start: 0;
     border: none;
     color: ${unsafeCSS(DefaultColor3)};
     cursor: pointer;

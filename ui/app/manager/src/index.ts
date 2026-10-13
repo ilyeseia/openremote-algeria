@@ -18,6 +18,7 @@
  */
 import { pageProvisioningProvider } from "./pages/page-provisioning";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { resolveLanguage } from "@openremote/core";
 import "@openremote/or-app";
 import themeCss from "@openremote/theme";
 import {
@@ -295,15 +296,12 @@ fetch(configURL)
           manager
             .getConsolePreferredLanguage()
             .then((consoleLang: string | undefined) => {
-              if (consoleLang) {
-                manager.language = consoleLang;
-              } else if (orAppConfig.realms[manager.displayRealm]) {
-                manager.language = orAppConfig.realms[manager.displayRealm].language;
-              } else if (orAppConfig.realms.default) {
-                manager.language = orAppConfig.realms.default.language;
-              } else {
-                manager.language = "en";
-              }
+              // Unsupported values are skipped, Arabic is the default
+              manager.language = resolveLanguage(
+                consoleLang,
+                orAppConfig.realms[manager.displayRealm]?.language,
+                orAppConfig.realms.default?.language
+              );
             })
             .catch((reason) => {
               console.error("Failed to initialise app: " + reason);

@@ -337,7 +337,7 @@ export class OrAttributeInput extends subscribe(manager)(translate(i18next)(OrEl
         }
 
         :host(.force-btn-padding) #wrapper.no-padding {
-          /*padding-right: 52px;*/
+          /*padding-inline-end: 52px;*/
         }
 
         #wrapper or-mwc-input,
@@ -361,7 +361,7 @@ export class OrAttributeInput extends subscribe(manager)(translate(i18next)(OrEl
         }
 
         #wrapper.right-padding {
-          padding-right: 52px;
+          padding-inline-end: 52px;
         }
 
         #wrapper-helper {
@@ -378,7 +378,7 @@ export class OrAttributeInput extends subscribe(manager)(translate(i18next)(OrEl
 
         #wrapper-label,
         #helper-text {
-          margin-left: 16px;
+          margin-inline-start: 16px;
         }
 
         /* Copy of mdc text field helper text styles */
@@ -411,7 +411,7 @@ export class OrAttributeInput extends subscribe(manager)(translate(i18next)(OrEl
 
         #send-btn {
           flex: 0;
-          margin-left: 4px;
+          margin-inline-start: 4px;
           --or-icon-width: 20px;
         }
       `,
