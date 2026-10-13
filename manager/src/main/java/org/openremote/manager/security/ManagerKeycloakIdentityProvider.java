@@ -1613,7 +1613,8 @@ public class ManagerKeycloakIdentityProvider extends KeycloakIdentityProvider
     realmRepresentation.setInternationalizationEnabled(true);
     // Only Arabic (default), English and French are offered; an existing default of the three is kept
     realmRepresentation.setSupportedLocales(new HashSet<>(SUPPORTED_LOCALES));
-    if (!SUPPORTED_LOCALES.contains(realmRepresentation.getDefaultLocale())) {
+    String currentLocale = realmRepresentation.getDefaultLocale();
+    if (currentLocale == null || !SUPPORTED_LOCALES.contains(currentLocale)) {
       realmRepresentation.setDefaultLocale(DEFAULT_LOCALE);
     }
 
