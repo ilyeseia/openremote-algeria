@@ -82,7 +82,7 @@ export class CoordinatesControl extends OrMapBaseControl {
     const icon = document.createElement("or-icon") as HTMLElement;
     icon.setAttribute("icon", "mdi:crosshairs");
     icon.setAttribute("slot", "prefix");
-    icon.style.cssText = "--or-icon-width: 14px; --or-icon-height: 14px; margin-left: 4px; margin-right: 8px;";
+    icon.style.cssText = "--or-icon-width: 14px; --or-icon-height: 14px; margin-inline-start: 4px; margin-inline-end: 8px;";
     input.appendChild(icon);
 
     this._container!.appendChild(input);

@@ -210,7 +210,7 @@ export class OrRuleFormLocalized extends translate(i18next)(OrElement) implement
     return html`
       <div style="margin-top: 10px; display: flex; justify-content: end; color: ${DefaultColor6};">
         <or-translate value="languagesInvalidError"></or-translate>
-        <span style="padding-left: 4px;">${invalidLocalesStr}</span>
+        <span style="padding-inline-start: 4px;">${invalidLocalesStr}</span>
       </div>
     `;
   }

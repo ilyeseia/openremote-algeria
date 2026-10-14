@@ -509,7 +509,7 @@ export class OrScheduler extends translate(i18next)(OrElement) {
         }
 
         .label {
-          margin-left: 10px;
+          margin-inline-start: 10px;
         }
         or-vaadin-number-field[disabled] + .label {
           color: var(--lumo-contrast-20pct);
@@ -556,7 +556,7 @@ export class OrScheduler extends translate(i18next)(OrElement) {
         this.removable,
         () =>
           html` <or-vaadin-button
-            style="background-color: unset; margin-right: auto"
+            style="background-color: unset; margin-inline-end: auto"
             theme="error"
             @click="${this._onDelete}"
           >
@@ -786,7 +786,7 @@ export class OrScheduler extends translate(i18next)(OrElement) {
       <h4><or-translate value="schedule._ends"></or-translate></h4>
       <div style="display: flex; gap: 8px;">
         <or-vaadin-radio-group
-          style="padding-right: 10px; width: unset"
+          style="padding-inline-end: 10px; width: unset"
           .value="${this._ends}"
           theme="vertical"
           @change="${this._onPartChange("recurrence-ends", "value")}"

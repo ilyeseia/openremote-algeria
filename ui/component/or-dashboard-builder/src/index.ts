@@ -103,17 +103,17 @@ const styling = css`
     font-size: 18px;
   }
   #header-title > or-icon {
-    margin-right: 10px;
+    margin-inline-end: 10px;
   }
   #header-actions {
     flex: 1 1 auto;
-    text-align: right;
+    text-align: end;
   }
   #header-actions-content {
     display: flex;
     flex-direction: row;
     align-items: center;
-    float: right;
+    float: inline-end;
   }
 
   /* Header related styling */
@@ -136,13 +136,13 @@ const styling = css`
   }
   #fullscreen-header-actions {
     flex: 1 1 auto;
-    text-align: right;
+    text-align: end;
   }
   #fullscreen-header-actions-content {
     display: flex;
     flex-direction: row;
     align-items: center;
-    float: right;
+    float: inline-end;
   }
 
   /* ----------------------------- */
@@ -159,13 +159,13 @@ const styling = css`
     position: relative;
     width: 300px;
     background: white;
-    border-left: 1px solid ${unsafeCSS(DefaultColor5)};
+    border-inline-start: 1px solid ${unsafeCSS(DefaultColor5)};
   }
   #sidebar-widget-headeractions {
     flex: 0;
     display: flex;
     flex-direction: row;
-    padding-right: 5px;
+    padding-inline-end: 5px;
   }
   .settings-container {
     display: flex;
@@ -180,10 +180,10 @@ const styling = css`
   }
 
   #save-btn {
-    margin-left: 15px;
+    margin-inline-start: 15px;
   }
   #view-btn {
-    margin-left: 18px;
+    margin-inline-start: 18px;
   }
 
   .small-btn {
@@ -793,7 +793,7 @@ export class OrDashboardBuilder extends translate(i18next)(OrElement) {
                           <div id="fullscreen-header-title" style="display: flex; align-items: center;">
                             <or-icon
                               class="showMobile"
-                              style="margin-right: 10px; cursor: pointer;"
+                              style="margin-inline-end: 10px; cursor: pointer;"
                               icon="chevron-left"
                               @click="${() => {
                                 this.selectedDashboard = undefined;
@@ -801,7 +801,7 @@ export class OrDashboardBuilder extends translate(i18next)(OrElement) {
                             ></or-icon>
                             <or-icon
                               class="hideMobile"
-                              style="margin-right: 10px; cursor: pointer;"
+                              style="margin-inline-end: 10px; cursor: pointer;"
                               icon="menu"
                               title="${i18next.t(this.showDashboardTree ? "closeList" : "openList")}"
                               @click="${() => {

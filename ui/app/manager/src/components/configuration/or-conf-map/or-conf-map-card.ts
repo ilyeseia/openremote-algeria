@@ -166,7 +166,7 @@ export class OrConfMapCard extends OrElement {
 
         .zoom-group {
           width: 50%;
-          padding-left: 12px;
+          padding-inline-start: 12px;
         }
 
         .map-container {

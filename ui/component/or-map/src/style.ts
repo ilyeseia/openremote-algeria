@@ -269,7 +269,7 @@ export const mapAssetCardStyle = css`
   }
 
   #header > or-icon {
-    margin-right: 5px;
+    margin-inline-end: 5px;
   }
 
   #title {
@@ -304,14 +304,14 @@ export const mapAssetCardStyle = css`
 
   .attribute-value {
     overflow: hidden;
-    padding-left: 20px;
-    text-align: right;
+    padding-inline-start: 20px;
+    text-align: end;
   }
 
   #footer {
     height: var(--internal-or-map-asset-card-header-height);
     border-top: 1px solid var(--internal-or-map-asset-card-separator-color);
-    text-align: right;
+    text-align: end;
     padding: 5px 12px;
   }
 

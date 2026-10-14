@@ -86,7 +86,7 @@ export class RuleBrowser extends translate(i18next)(OrElement) {
         }`;
         break;
       case Status.Failure:
-        result = html`<span>Failed to load rules</span>`;
+        result = html`<span>${i18next.t("rulesLoadFailed")}</span>`;
         break;
     }
     return html` <div style="display: flex; flex-direction: column; width: auto; align-items: stretch;">

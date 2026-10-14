@@ -110,7 +110,7 @@ export const style = css`
     flex: 1 0 auto;
     flex-direction: row;
     text-transform: capitalize;
-    padding-left: 15px;
+    padding-inline-start: 15px;
   }
 
   #title {
@@ -120,7 +120,7 @@ export const style = css`
 
   #realm-picker {
     outline: none;
-    margin-left: 5px;
+    margin-inline-start: 5px;
     text-transform: none;
     font-size: 14px;
   }
@@ -129,7 +129,7 @@ export const style = css`
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-right: 5px;
+    padding-inline-end: 5px;
   }
 
   #list-container {
@@ -168,7 +168,7 @@ export const style = css`
   }
 
   #list li[data-selected] > .node-container {
-    border-left-color: var(--internal-or-asset-tree-selected-color);
+    border-inline-start-color: var(--internal-or-asset-tree-selected-color);
   }
 
   .asset-list-element .over {
@@ -189,13 +189,13 @@ export const style = css`
   }
   .loadmore-element {
     display: flex;
-    padding-left: 15px;
+    padding-inline-start: 15px;
     align-items: center;
   }
 
   .node-container {
     display: flex;
-    border-left: 4px solid transparent;
+    border-inline-start: 4px solid transparent;
     user-select: none;
     cursor: pointer;
     height: var(--internal-or-asset-tree-item-height);
@@ -217,8 +217,8 @@ export const style = css`
     background-size: 18px;
     background-position: center;
 
-    margin-left: -4px;
-    border-left: 4px solid transparent;
+    margin-inline-start: -4px;
+    border-inline-start: 4px solid transparent;
   }
 
   .expander[data-expandable] {
@@ -245,7 +245,7 @@ export const style = css`
     flex: 1 1 auto;
     white-space: nowrap;
     overflow: hidden;
-    margin-right: 4px;
+    margin-inline-end: 4px;
     text-overflow: ellipsis;
     vertical-align: middle;
   }
@@ -258,7 +258,7 @@ export const style = css`
   .node-name > or-icon {
     --or-icon-width: 18px;
     --or-icon-height: 18px;
-    margin-right: 8px;
+    margin-inline-end: 8px;
   }
 
   #loading {
@@ -277,9 +277,9 @@ export const style = css`
   }
 
   .mdc-list-item__graphic {
-    margin-left: auto;
+    margin-inline-start: auto;
     display: flex;
-    margin-right: 5px;
+    margin-inline-end: 5px;
   }
 
   .mdc-checkbox {
@@ -317,13 +317,13 @@ export const style = css`
     width: 16px;
     height: 16px;
     position: absolute;
-    right: 20px;
-    padding-right: 14px;
+    inset-inline-end: 20px;
+    padding-inline-end: 14px;
     cursor: pointer;
   }
 
   #filterSettingsIcon {
-    margin-right: 7px;
+    margin-inline-end: 7px;
   }
 
   #asset-tree-filter-setting {

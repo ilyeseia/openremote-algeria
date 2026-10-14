@@ -75,8 +75,8 @@ export class OrMapGeocoder extends OrElement {
       }
 
       or-icon[slot="prefix"] {
-        margin-left: 4px;
-        margin-right: 8px;
+        margin-inline-start: 4px;
+        margin-inline-end: 8px;
       }
 
       or-vaadin-combo-box {

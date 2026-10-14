@@ -63,8 +63,8 @@ export const style = css`
   }
 
   or-scheduler {
-    margin-left: 10px;
-    margin-right: 20px;
+    margin-inline-start: 10px;
+    margin-inline-end: 20px;
     max-width: 400px;
   }
 
@@ -99,13 +99,13 @@ export const style = css`
   }
 
   #rule-header-controls {
-    margin-left: auto;
+    margin-inline-start: auto;
     display: flex;
     align-items: center;
   }
 
   #rule-id {
-    margin-left: 10px;
+    margin-inline-start: 10px;
     font-size: small;
   }
 
@@ -120,12 +120,12 @@ export const style = css`
   }
 
   .iconfill-gray {
-    margin-left: 10px;
+    margin-inline-start: 10px;
     --or-icon-fill: var(--internal-or-rules-list-icon-color-ok);
   }
 
   .iconfill-red {
-    margin-left: 10px;
+    margin-inline-start: 10px;
     --or-icon-fill: var(--internal-or-rules-list-icon-color-error);
   }
 
@@ -292,7 +292,7 @@ export class OrRuleViewer extends translate(i18next)(OrElement) {
           </div>
           <div id="rule-header-controls">
             <span id="active-wrapper">
-              <span style="margin-right: 4px;"><or-translate value="enabled"></or-translate></span>
+              <span style="margin-inline-end: 4px;"><or-translate value="enabled"></or-translate></span>
               <or-vaadin-checkbox
                 ?checked=${this.ruleset?.enabled}
                 ?disabled=${readonly || !this.ruleset.id}

@@ -109,14 +109,24 @@ export class OrAlarmsTable extends OrMwcTable {
   public readonly = true;
 
   // Setup columns
-  public columns: AlarmTableColumn[] = [
-    { title: i18next.t("alarm.severity"), widthWeight: 3, isSortable: true },
-    { title: i18next.t("alarm.title"), widthWeight: 25, isSortable: true },
-    { title: i18next.t("alarm.status"), widthWeight: 3, isSortable: true },
-    { title: i18next.t("alarm.linkedAssets"), widthWeight: 6, hideMobile: true },
-    { title: i18next.t("alarm.assignee"), widthWeight: 4, isSortable: true },
-    { title: i18next.t("alarm.lastModified"), widthWeight: 6, isSortable: true },
-  ];
+  public columns: AlarmTableColumn[] = this.getAlarmColumns();
+
+  protected getAlarmColumns(): AlarmTableColumn[] {
+    return [
+      { title: i18next.t("alarm.severity"), widthWeight: 3, isSortable: true },
+      { title: i18next.t("alarm.title"), widthWeight: 25, isSortable: true },
+      { title: i18next.t("alarm.status"), widthWeight: 3, isSortable: true },
+      { title: i18next.t("alarm.linkedAssets"), widthWeight: 6, hideMobile: true },
+      { title: i18next.t("alarm.assignee"), widthWeight: 4, isSortable: true },
+      { title: i18next.t("alarm.lastModified"), widthWeight: 6, isSortable: true },
+    ];
+  }
+
+  protected onLanguageChanged(): void {
+    this.columns = this.getAlarmColumns();
+    this.rows = this.alarms ? this.getTableRows(this.alarms) : this.rows;
+    super.onLanguageChanged();
+  }
 
   // Config override
   protected config: TableConfig = {

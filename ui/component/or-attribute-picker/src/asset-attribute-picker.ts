@@ -116,7 +116,7 @@ export class OrAssetAttributePicker extends AttributePicker {
         class="row"
         style="display: flex;height: 600px;width: 800px;border-top: 1px solid ${unsafeCSS(DefaultColor5)};"
       >
-        <div class="col" style="width: 260px;overflow: auto;border-right: 1px solid ${unsafeCSS(DefaultColor5)};">
+        <div class="col" style="width: 260px;overflow: auto;border-inline-end: 1px solid ${unsafeCSS(DefaultColor5)};">
           <or-asset-tree
             id="chart-asset-tree"
             readonly

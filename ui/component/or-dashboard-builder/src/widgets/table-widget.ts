@@ -65,6 +65,19 @@ const styling = css`
 export class TableWidget extends OrAssetWidget {
   protected widgetConfig!: TableWidgetConfig;
 
+  connectedCallback() {
+    super.connectedCallback();
+    i18next.on("languageChanged", this._onLanguageChanged);
+  }
+
+  disconnectedCallback() {
+    i18next.off("languageChanged", this._onLanguageChanged);
+    super.disconnectedCallback();
+  }
+
+  // The column titles are translated while rendering, so re-render to follow the language
+  protected _onLanguageChanged = () => this.requestUpdate();
+
   static getManifest(): WidgetManifest {
     return {
       displayName: "Table",

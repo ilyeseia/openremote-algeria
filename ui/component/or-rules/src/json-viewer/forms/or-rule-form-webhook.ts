@@ -146,7 +146,7 @@ export class OrRuleFormWebhook extends OrElement implements OrRuleForm {
           </div>
           <!-- Headers -->
           <div style="display: flex; flex-direction: column; gap: 5px; margin-bottom: 28px;">
-            <span>Headers</span>
+            <span><or-translate value="headers"></or-translate></span>
             ${when(
               this.loading,
               () => html` ${this.getHeadersTemplate(this.webhook.headers!, true)} `,

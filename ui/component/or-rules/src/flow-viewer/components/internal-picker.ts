@@ -90,7 +90,7 @@ export class InternalPicker extends translate(i18next)(OrElement) {
           line-height: 16px;
           justify-content: flex-start;
           font-size: 14px;
-          text-align: left;
+          text-align: start;
         }
         .selected-asset-label .asset {
           color: rgb(76, 76, 76);

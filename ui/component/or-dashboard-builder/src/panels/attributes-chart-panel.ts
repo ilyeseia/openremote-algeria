@@ -59,7 +59,7 @@ export class AttributesChartPanel extends AttributesPanel {
       ${when(
         !!this.attributeActionCallback,
         () => html`
-          <div class="attribute-list-item-actions" style="margin-left: 18px; justify-content: start;">
+          <div class="attribute-list-item-actions" style="margin-inline-start: 18px; justify-content: start;">
             <!-- Custom actions defined by callback -->
             ${this.attributeActionCallback!(attributeRef).map((action) => this._getAttributeActionTemplate(action, asset, attributeRef))}
           </div>

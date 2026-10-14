@@ -70,8 +70,8 @@ export class PageRoles extends Page<AppStateKeyed> {
         }
 
         #title or-icon {
-          margin-right: 10px;
-          margin-left: 14px;
+          margin-inline-end: 10px;
+          margin-inline-start: 14px;
         }
 
         .panel {
@@ -130,16 +130,16 @@ export class PageRoles extends Page<AppStateKeyed> {
           overflow: hidden;
           max-height: 0;
           transition: max-height 0.25s ease-out;
-          padding-left: 16px;
-          padding-right: 16px;
+          padding-inline-start: 16px;
+          padding-inline-end: 16px;
         }
 
         or-icon {
           vertical-align: middle;
           --or-icon-width: 20px;
           --or-icon-height: 20px;
-          margin-right: 2px;
-          margin-left: -5px;
+          margin-inline-end: 2px;
+          margin-inline-start: -5px;
         }
 
         .row {
@@ -167,7 +167,7 @@ export class PageRoles extends Page<AppStateKeyed> {
         }
 
         .mdc-data-table__header-cell:first-child {
-          padding-left: 36px;
+          padding-inline-start: 36px;
         }
 
         .padded-cell {
@@ -203,7 +203,7 @@ export class PageRoles extends Page<AppStateKeyed> {
 
         .button or-icon {
           --or-icon-fill: var(--or-app-color4);
-          margin-right: 5px;
+          margin-inline-end: 5px;
         }
 
         @media screen and (max-width: 1024px) {
@@ -219,8 +219,8 @@ export class PageRoles extends Page<AppStateKeyed> {
             width: 100%;
           }
           .panel {
-            border-left: 0px;
-            border-right: 0px;
+            border-inline-start: 0px;
+            border-inline-end: 0px;
             width: calc(100% - 48px);
             border-radius: 0;
           }

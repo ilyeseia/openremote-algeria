@@ -66,19 +66,19 @@ const editorStyling = css`
   }
   /* Margins on view options */
   #fit-btn {
-    margin-right: 10px;
+    margin-inline-end: 10px;
   }
   #view-preset-select {
-    margin-left: 20px;
+    margin-inline-start: 20px;
   }
   #width-input {
-    margin-left: 20px;
+    margin-inline-start: 20px;
   }
   #height-input {
-    margin-left: 10px;
+    margin-inline-start: 10px;
   }
   #rotate-btn {
-    margin-left: 10px;
+    margin-inline-start: 10px;
   }
 
   .maingridContainer {

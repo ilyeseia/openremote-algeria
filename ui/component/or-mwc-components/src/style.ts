@@ -124,10 +124,10 @@ export const progressCircular = css`
       transform: rotate(-30deg);
     }
     29.4% {
-      border-left-color: transparent;
+      border-inline-start-color: transparent;
     }
     29.41% {
-      border-left-color: currentColor;
+      border-inline-start-color: currentColor;
     }
     64.7% {
       border-bottom-color: transparent;
@@ -136,7 +136,7 @@ export const progressCircular = css`
       border-bottom-color: currentColor;
     }
     100% {
-      border-left-color: currentColor;
+      border-inline-start-color: currentColor;
       border-bottom-color: currentColor;
       transform: rotate(225deg);
     }

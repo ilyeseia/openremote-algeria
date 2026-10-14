@@ -295,7 +295,7 @@ const style = css`
 
   #wrapper > label {
     white-space: nowrap;
-    margin-right: 20px;
+    margin-inline-end: 20px;
   }
 
   #component {
@@ -451,7 +451,7 @@ const style = css`
   }
 
   .mdc-switch--full-width {
-    margin-left: auto;
+    margin-inline-start: auto;
   }
   .mdc-button--fullwidth {
     width: 100%;
@@ -1270,7 +1270,7 @@ export class OrMwcInput extends OrElement {
                 ?required="${this.required}"
                 @change="${(e: any) => this.onValueChange(e.target as HTMLInputElement, (e.target as HTMLInputElement).value)}"
               />
-              <label style="margin-left: 10px; cursor: pointer" for="elem">${this.label}</label>
+              <label style="margin-inline-start: 10px; cursor: pointer" for="elem">${this.label}</label>
             </div>
           `;
         case InputType.NUMBER:

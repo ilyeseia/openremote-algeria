@@ -1571,6 +1571,11 @@ public class ManagerKeycloakIdentityProvider extends KeycloakIdentityProvider
     return frontendURI;
   }
 
+  /** Interface languages offered on the Keycloak login, account and email pages. */
+  protected static final List<String> SUPPORTED_LOCALES = List.of("ar", "en", "fr");
+
+  protected static final String DEFAULT_LOCALE = "ar";
+
   protected void configureRealm(
       RealmRepresentation realmRepresentation, RealmResource realmResource) {
 
@@ -1606,6 +1611,12 @@ public class ManagerKeycloakIdentityProvider extends KeycloakIdentityProvider
 
     // Internationalization must be enabled for locale attribute to be persisted
     realmRepresentation.setInternationalizationEnabled(true);
+    // Only Arabic (default), English and French are offered; an existing default of the three is kept
+    realmRepresentation.setSupportedLocales(new HashSet<>(SUPPORTED_LOCALES));
+    String currentLocale = realmRepresentation.getDefaultLocale();
+    if (currentLocale == null || !SUPPORTED_LOCALES.contains(currentLocale)) {
+      realmRepresentation.setDefaultLocale(DEFAULT_LOCALE);
+    }
 
     // Since Keycloak 26.7.0 Unmanaged user attributes are disabled for all realms
     UserProfileResource userProfileResource = realmResource.users().userProfile();

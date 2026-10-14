@@ -30,6 +30,8 @@ import manager, {
   DefaultColor2,
   DefaultColor3,
   DefaultColor4,
+  DEFAULT_LANGUAGE,
+  SUPPORTED_LANGUAGES,
   type Manager,
   normaliseConfig,
   OREvent,
@@ -173,7 +175,7 @@ export class OrApp<S extends AppStateKeyed> extends OrElement {
 
       /* HEADER STYLES */
       or-header a > or-icon {
-        margin-right: 10px;
+        margin-inline-end: 10px;
       }
     `;
   }
@@ -241,7 +243,7 @@ export class OrApp<S extends AppStateKeyed> extends OrElement {
       managerConfig.realm = Util.getQueryParameter("realm");
     }
     if (!managerConfig.defaultLanguage) {
-      managerConfig.defaultLanguage = Util.getBrowserLanguage();
+      managerConfig.defaultLanguage = DEFAULT_LANGUAGE;
     }
     console.info("Initialising the manager");
 
@@ -520,11 +522,17 @@ export class OrApp<S extends AppStateKeyed> extends OrElement {
         this._completeOfflineFallbackTimer(); // complete fallback timer
         this._store.dispatch(setOffline(false));
       }
+    } else if (event === OREvent.TRANSLATE_LANGUAGE_CHANGED) {
+      // The window title is built from translated names, so it follows the language without a reload
+      this.updateWindowTitle();
     }
   }
 
   protected _getLanguageDialogTemplate(): TemplateResult {
-    const languages = Object.entries(this.appConfig!.languages || DEFAULT_LANGUAGES);
+    // Only supported languages are ever offered, even when the app config lists others
+    const languages = Object.entries(this.appConfig!.languages || DEFAULT_LANGUAGES).filter(([key]) =>
+      SUPPORTED_LANGUAGES.includes(key)
+    );
     const selected = languages.findIndex(([key]) => key === manager.language);
     const onchange = (ev: CustomEvent) => {
       const lang = languages[ev.detail.value]?.[0] ?? languages[0][0];
@@ -534,7 +542,7 @@ export class OrApp<S extends AppStateKeyed> extends OrElement {
       }
     };
     const header = () => html`
-      <h2 style="padding-left: 7px; margin: 0;">
+      <h2 style="padding-inline-start: 7px; margin: 0;">
         <or-translate value="language"></or-translate>
       </h2>
     `;

@@ -101,7 +101,7 @@ export const style = css`
     flex: 1;
     flex-direction: row;
     text-transform: capitalize;
-    padding-left: 14px;
+    padding-inline-start: 14px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -118,9 +118,9 @@ export const style = css`
     padding: 12px;
     background: none;
     border-top: 1px solid var(--or-app-color5, ${unsafeCSS(DefaultColor5)});
-    border-right: none;
+    border-inline-end: none;
     border-bottom: none;
-    border-left: none;
+    border-inline-start: none;
     border-radius: 0;
     width: 100%;
     cursor: pointer;

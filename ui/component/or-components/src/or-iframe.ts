@@ -21,6 +21,7 @@ import { OrElement } from "@openremote/or-element";
 import { customElement, property, state } from "lit/decorators.js";
 import "./or-loading-indicator";
 import "@openremote/or-icon";
+import "@openremote/or-translate";
 
 export enum OrIFrameEventType {
   LOADED = "or-iframe-loaded",
@@ -235,7 +236,7 @@ export class OrIframe extends OrElement {
           this.error
             ? html`<div class="error">
                 <or-icon icon="alert-octagon"></or-icon>
-                <slot name="onerror">Failed to load iframe</slot>
+                <slot name="onerror"><or-translate value="iframeLoadFailed"></or-translate></slot>
               </div>`
             : html``
         }

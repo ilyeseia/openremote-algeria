@@ -47,7 +47,7 @@ const treeStyles = css`
   }
 
   or-tree-node {
-    padding-left: 10px;
+    padding-inline-start: 10px;
   }
 `;
 

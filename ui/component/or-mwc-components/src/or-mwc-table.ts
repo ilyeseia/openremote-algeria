@@ -113,7 +113,7 @@ const style = css`
   }
 
   .sort-button {
-    padding-right: 0;
+    padding-inline-end: 0;
     border: none;
     color: ${unsafeCSS(DefaultColor3)};
     background-color: transparent;
@@ -121,7 +121,7 @@ const style = css`
   }
 
   .sort-button-reverse {
-    padding-left: 0;
+    padding-inline-start: 0;
     border: none;
     color: ${unsafeCSS(DefaultColor3)};
     cursor: pointer;
@@ -254,6 +254,26 @@ export class OrMwcTable extends OrElement {
 
   @property({ type: Array })
   public columns?: TableColumn[] | string[];
+
+  connectedCallback() {
+    super.connectedCallback();
+    i18next.on("languageChanged", this._onLanguageChanged);
+  }
+
+  disconnectedCallback() {
+    i18next.off("languageChanged", this._onLanguageChanged);
+    super.disconnectedCallback();
+  }
+
+  protected _onLanguageChanged = () => this.onLanguageChanged();
+
+  /**
+   * Called when the interface language changes. Tables that translate their own column titles override this
+   * to rebuild them; the default re-renders so labels translated at render time (pagination, loading) follow.
+   */
+  protected onLanguageChanged(): void {
+    this.requestUpdate();
+  }
 
   @property({ type: Object }) // to manually control HTML
   protected columnsTemplate?: TemplateResult;

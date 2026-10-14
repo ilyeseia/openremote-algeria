@@ -147,7 +147,7 @@ const styling = css`
     width: 14px;
     height: 14px;
     border-radius: 7px;
-    margin-right: 10px;
+    margin-inline-end: 10px;
   }
 
   .attribute-list-item .button.delete {

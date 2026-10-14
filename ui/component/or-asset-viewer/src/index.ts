@@ -881,7 +881,7 @@ function getPanelContent(
         .asset-group-add-remove-button {
           position: absolute;
           top: calc(var(--internal-or-asset-viewer-panel-padding) - 15px);
-          right: calc(var(--internal-or-asset-viewer-panel-padding) - 15px);
+          inset-inline-end: calc(var(--internal-or-asset-viewer-panel-padding) - 15px);
         }
         .asset-group-add-remove-button.active {
           cursor: pointer;

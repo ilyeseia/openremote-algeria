@@ -85,7 +85,7 @@ export class OrMapLegend extends OrElement {
         or-icon {
           --or-icon-width: 18px;
           --or-icon-height: 18px;
-          margin-right: 4px;
+          margin-inline-end: 4px;
         }
 
         or-vaadin-item {

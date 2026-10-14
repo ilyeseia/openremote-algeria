@@ -29,7 +29,7 @@ const styles = css`
     height: var(--or-tree-node-height, 44px);
     padding: 6px 12px 6px var(--or-tree-node-indent, 24px);
     background: var(--or-tree-node-background, transparent);
-    border-left: 4px solid transparent;
+    border-inline-start: 4px solid transparent;
     display: flex;
     align-items: center;
     gap: var(--or-tree-node-gap, 8px);
@@ -52,7 +52,7 @@ const styles = css`
 
   :host([selected]) {
     background: var(--or-tree-node-background--selected, #f1f3f5);
-    border-left: 4px solid var(--or-tree-node-color--selected, var(--or-app-color4, #4d9d2a));
+    border-inline-start: 4px solid var(--or-tree-node-color--selected, var(--or-app-color4, #4d9d2a));
   }
 
   ::slotted(*:not([slot])) {

@@ -61,7 +61,7 @@ const tabStyling = css`
     gap: 6px; /* 6px is original Material spec */
   }
   .mdc-tab-vertical__text-label {
-    padding-left: 0 !important;
+    padding-inline-start: 0 !important;
   }
 `;
 

@@ -259,7 +259,7 @@ const style = css`
   }
 
   .add-button-wrapper > * {
-    margin-right: 6px;
+    margin-inline-end: 6px;
   }
 
   #type {
@@ -270,7 +270,7 @@ const style = css`
   .rule-recurrence {
     position: absolute;
     top: 5px;
-    right: 0;
+    inset-inline-end: 0;
   }
 `;
 
@@ -320,7 +320,7 @@ class OrRuleThenOtherwise extends translate(i18next)(OrElement) {
     }
     if (readonly) {
       recurrenceTemplate = html`
-        <div style="margin-right: 6px;">
+        <div style="margin-inline-end: 6px;">
           <or-vaadin-button disabled>
             <or-translate value=${value}></or-translate>
           </or-vaadin-button>
@@ -328,7 +328,7 @@ class OrRuleThenOtherwise extends translate(i18next)(OrElement) {
       `;
     } else {
       recurrenceTemplate = html`
-        <div style="margin-right: 6px; min-width: 180px;">
+        <div style="margin-inline-end: 6px; min-width: 180px;">
           <or-vaadin-select
             .items=${getRecurrenceOptions(this.config)}
             value=${value}

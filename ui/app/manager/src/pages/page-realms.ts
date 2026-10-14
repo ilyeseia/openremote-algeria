@@ -75,8 +75,8 @@ export class PageRealms extends Page<AppStateKeyed> {
         }
 
         #title or-icon {
-          margin-right: 10px;
-          margin-left: 14px;
+          margin-inline-end: 10px;
+          margin-inline-start: 14px;
         }
 
         .panel {
@@ -141,8 +141,8 @@ export class PageRealms extends Page<AppStateKeyed> {
           vertical-align: middle;
           --or-icon-width: 20px;
           --or-icon-height: 20px;
-          margin-right: 2px;
-          margin-left: -5px;
+          margin-inline-end: 2px;
+          margin-inline-start: -5px;
         }
 
         .row {
@@ -167,7 +167,7 @@ export class PageRealms extends Page<AppStateKeyed> {
         }
 
         .mdc-data-table__header-cell:first-child {
-          padding-left: 36px;
+          padding-inline-start: 36px;
         }
 
         .mdc-data-table__row {
@@ -222,8 +222,8 @@ export class PageRealms extends Page<AppStateKeyed> {
             width: 100%;
           }
           .panel {
-            border-left: 0px;
-            border-right: 0px;
+            border-inline-start: 0px;
+            border-inline-end: 0px;
             width: calc(100% - 48px);
             border-radius: 0;
           }
@@ -434,7 +434,7 @@ export class PageRealms extends Page<AppStateKeyed> {
                                     }
                                     <or-vaadin-button
                                       theme="primary"
-                                      style="margin-left: auto;"
+                                      style="margin-inline-start: auto;"
                                       @click=${() => this._updateRealm(realm)}
                                     >
                                       <or-translate value="save"></or-translate>

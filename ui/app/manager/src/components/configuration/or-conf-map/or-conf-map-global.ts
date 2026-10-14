@@ -45,7 +45,7 @@ export class OrConfMapGlobal extends OrElement {
 
     .map-tile-upload-group {
       flex-direction: column;
-      padding-left: 12px;
+      padding-inline-start: 12px;
       width: 50%;
     }
 
@@ -60,7 +60,7 @@ export class OrConfMapGlobal extends OrElement {
 
     .map-style-layers-group {
       flex-direction: column;
-      padding-left: 12px;
+      padding-inline-start: 12px;
       width: 50%;
     }
 
@@ -159,7 +159,7 @@ export class OrConfMapGlobal extends OrElement {
               <or-mwc-input
                 outlined
                 label="selectFile"
-                style="width: fit-content; padding-right: 12px;"
+                style="width: fit-content; padding-inline-end: 12px;"
                 .type="${InputType.BUTTON}"
                 @or-mwc-input-changed="${() => this.shadowRoot.getElementById("fileupload-elem").click()}"
               >

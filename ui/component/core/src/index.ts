@@ -26,6 +26,17 @@ import i18nextBackend from "i18next-http-backend";
 import moment from "moment";
 import { AssetModelUtil, Auth, type ConsoleAppConfig, EventProviderType, type ManagerConfig } from "@openremote/model";
 import * as Util from "./util";
+import {
+  DEFAULT_LANGUAGE,
+  DEFAULT_LANGUAGES,
+  FALLBACK_LANGUAGE,
+  SUPPORTED_LANGUAGES,
+  applyDocumentLanguage,
+  getLanguageDirection,
+  normaliseLanguage,
+  resolveLanguage,
+  type Languages,
+} from "./locale";
 import { createMdiIconSet, createSvgIconSet, IconSets, OrIconSet } from "@openremote/or-icon";
 import Keycloak from "keycloak-js";
 
@@ -78,30 +89,21 @@ export interface LoginOptions {
   action?: string;
 }
 
-export interface Languages {
-  [langKey: string]: string;
-}
-
-export const DEFAULT_LANGUAGES: Languages = {
-  en: "english",
-  cn: "chinese",
-  cs: "czech",
-  nl: "dutch",
-  fr: "french",
-  de: "german",
-  it: "italian",
-  pl: "polish",
-  pt: "portuguese",
-  ro: "romanian",
-  es: "spanish",
-  uk: "ukrainian",
+export {
+  DEFAULT_LANGUAGE,
+  DEFAULT_LANGUAGES,
+  FALLBACK_LANGUAGE,
+  SUPPORTED_LANGUAGES,
+  applyDocumentLanguage,
+  getLanguageDirection,
+  normaliseLanguage,
+  resolveLanguage,
 };
+export type { Languages };
 
 // Maps i18next language codes to Moment locale codes where they differ.
 // Add a new entry here when adding a language whose i18next code != Moment locale code.
-export const I18NEXT_TO_MOMENT_LOCALE: Record<string, string> = {
-  cn: "zh-cn",
-};
+export const I18NEXT_TO_MOMENT_LOCALE: Record<string, string> = {};
 
 /**
  * Registers the formats the translations interpolate with on an initialised i18next instance.
@@ -277,13 +279,16 @@ export class Manager implements EventProviderFactory {
   }
 
   set language(lang: string) {
-    console.debug(`Changing language to ${lang}.`);
-    if (lang) {
-      i18next.changeLanguage(lang);
-      this.console.storeData("LANGUAGE", lang);
-      if (this.authenticated) {
-        this.updateKeycloakUserLanguage(lang).catch((e) => console.error(e));
-      }
+    const supported = normaliseLanguage(lang);
+    if (!supported) {
+      console.warn(`Ignoring unsupported language '${lang}', supported: ${SUPPORTED_LANGUAGES.join(", ")}.`);
+      return;
+    }
+    console.debug(`Changing language to ${supported}.`);
+    i18next.changeLanguage(supported);
+    this.console.storeData("LANGUAGE", supported);
+    if (this.authenticated) {
+      this.updateKeycloakUserLanguage(supported).catch((e) => console.error(e));
     }
   }
 
@@ -488,17 +493,22 @@ export class Manager implements EventProviderFactory {
 
     i18next.on("languageChanged", (lng) => {
       moment.locale(I18NEXT_TO_MOMENT_LOCALE[lng] ?? lng);
+      applyDocumentLanguage(lng);
       this._emitEvent(OREvent.TRANSLATE_LANGUAGE_CHANGED);
     });
 
     // Look for language preference in local storage
     const initOptions: InitOptions = {
-      lng:
-        (await this.getConsolePreferredLanguage()) ||
-        (await this.getUserPreferredLanguage()) ||
-        this.config.defaultLanguage ||
-        "en",
-      fallbackLng: "en",
+      // An unsupported stored value is skipped so the next source (and finally Arabic) applies
+      lng: resolveLanguage(
+        await this.getConsolePreferredLanguage(),
+        await this.getUserPreferredLanguage(),
+        this.config.defaultLanguage
+      ),
+      supportedLngs: SUPPORTED_LANGUAGES,
+      load: "languageOnly",
+      // Untranslated keys fall back to English, never to an unsupported language
+      fallbackLng: FALLBACK_LANGUAGE,
       defaultNS: "app",
       fallbackNS: "or",
       ns: this.config.loadTranslations,

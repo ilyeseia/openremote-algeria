@@ -141,7 +141,7 @@ export class OrAddAssetDialog extends OrElement {
             
             #parent-selector {
                 max-width: 250px;
-                border-left: 1px solid var(--or-app-color5, ${unsafeCSS(DefaultColor5)});
+                border-inline-start: 1px solid var(--or-app-color5, ${unsafeCSS(DefaultColor5)});
             }
             
             #mdc-dialog-form-add {
@@ -187,7 +187,7 @@ export class OrAddAssetDialog extends OrElement {
                 display: flex;
                 flex-direction: column;
                 width: 300px;
-                border-right: 1px solid var(--or-app-color5, ${unsafeCSS(DefaultColor5)});
+                border-inline-end: 1px solid var(--or-app-color5, ${unsafeCSS(DefaultColor5)});
             }
 
             #type-title {
@@ -199,7 +199,7 @@ export class OrAddAssetDialog extends OrElement {
             #type-description {
                 text-transform: capitalize;
                 color: var(--or-app-color3, ${unsafeCSS(DefaultColor3)});
-                margin-left: 10px;
+                margin-inline-start: 10px;
                 font-size: 18px;
                 font-weight: bold;
                 font-family: "Segoe UI", Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";

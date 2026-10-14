@@ -47,7 +47,7 @@ const getStyles = () => css`
     display: flex;
     align-items: center;
     aspect-ratio: 1/1.25;
-    padding-left: 4px;
+    padding-inline-start: 4px;
     font-size: 18px;
     color: #cccccc;
     z-index: 10;

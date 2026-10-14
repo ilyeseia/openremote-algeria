@@ -88,8 +88,8 @@ export class PageExport extends Page<AppStateKeyed> {
         }
 
         #title or-icon {
-          margin-right: 10px;
-          margin-left: 14px;
+          margin-inline-end: 10px;
+          margin-inline-start: 14px;
         }
 
         .panel {
@@ -133,7 +133,7 @@ export class PageExport extends Page<AppStateKeyed> {
           overflow: hidden;
           max-height: 0;
           transition: max-height 0.25s ease-out;
-          padding-left: 16px;
+          padding-inline-start: 16px;
         }
 
         .mdc-data-table__header-cell {
@@ -153,7 +153,7 @@ export class PageExport extends Page<AppStateKeyed> {
         }
         .button or-icon {
           --or-icon-fill: var(--or-app-color4);
-          margin-right: 5px;
+          margin-inline-end: 5px;
         }
 
         .remove-button {
@@ -179,8 +179,8 @@ export class PageExport extends Page<AppStateKeyed> {
 
           .panel {
             border-radius: 0;
-            border-left: 0px;
-            border-right: 0px;
+            border-inline-start: 0px;
+            border-inline-end: 0px;
             width: calc(100% - 48px);
           }
 
@@ -204,7 +204,7 @@ export class PageExport extends Page<AppStateKeyed> {
 
         .export-btn-wrapper .button {
           padding: 0;
-          margin-right: 0;
+          margin-inline-end: 0;
           margin-bottom: 0;
         }
       `,

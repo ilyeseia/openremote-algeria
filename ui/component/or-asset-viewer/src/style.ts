@@ -82,8 +82,8 @@ export const panelStyles = css`
   @media screen and (max-width: 767px) {
     .panel {
       border-radius: 0;
-      border-right: none;
-      border-left: none;
+      border-inline-end: none;
+      border-inline-start: none;
       flex-basis: 100%;
       min-width: 360px;
     }
@@ -261,7 +261,7 @@ export const style = css`
   }
 
   #title > or-icon {
-    margin-right: 10px;
+    margin-inline-end: 10px;
   }
 
   #error-wrapper {
@@ -273,7 +273,7 @@ export const style = css`
   }
 
   #error-wrapper or-translate {
-    margin-left: 5px;
+    margin-inline-start: 5px;
   }
 
   #created-time {
@@ -282,7 +282,7 @@ export const style = css`
 
   #right-wrapper {
     flex: 1 1 auto;
-    text-align: right;
+    text-align: end;
   }
 
   #edit-wrapper {
@@ -290,15 +290,15 @@ export const style = css`
   }
 
   #edit-wrapper > or-translate {
-    margin-right: 10px;
+    margin-inline-end: 10px;
   }
 
   #save-btn {
-    margin-left: 20px;
+    margin-inline-start: 20px;
   }
 
   #edit-btn {
-    margin-left: 15px;
+    margin-inline-start: 15px;
   }
 
   #location-panel .panel-content {

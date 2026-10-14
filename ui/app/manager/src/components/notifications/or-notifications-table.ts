@@ -261,15 +261,25 @@ export class OrNotificationsTable extends OrMwcTable {
     return `${targetType}:${targetId}`;
   }
 
-  public columns: TableColumn[] = [
-    { title: i18next.t("title"), isSortable: true },
-    { title: i18next.t("body") },
-    { title: i18next.t("status"), isSortable: true },
-    { title: i18next.t("notifications.source"), isSortable: true },
-    { title: i18next.t("notifications.target") },
-    { title: i18next.t("sentOn"), isSortable: true },
-    { title: i18next.t("deliveredOn"), isSortable: true },
-  ];
+  public columns: TableColumn[] = this.getNotificationColumns();
+
+  protected getNotificationColumns(): TableColumn[] {
+    return [
+      { title: i18next.t("title"), isSortable: true },
+      { title: i18next.t("body") },
+      { title: i18next.t("status"), isSortable: true },
+      { title: i18next.t("notifications.source"), isSortable: true },
+      { title: i18next.t("notifications.target") },
+      { title: i18next.t("sentOn"), isSortable: true },
+      { title: i18next.t("deliveredOn"), isSortable: true },
+    ];
+  }
+
+  protected onLanguageChanged(): void {
+    this.columns = this.getNotificationColumns();
+    this.rows = this.getTableRows(this.notifications || []);
+    super.onLanguageChanged();
+  }
 
   protected config: TableConfig = {
     columnFilter: [],

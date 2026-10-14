@@ -73,7 +73,7 @@ const styling = css`
 
   .main-number-icon {
     font-size: 24px;
-    margin-right: 10px;
+    margin-inline-end: 10px;
     display: flex;
   }
 
@@ -81,7 +81,7 @@ const styling = css`
     font-size: 42px;
     color: var(--internal-or-asset-viewer-title-text-color);
     font-weight: 200;
-    margin-left: 5px;
+    margin-inline-start: 5px;
   }
 
   .main-number.xs,

@@ -25,7 +25,7 @@ export class OrLogoControl extends OrMapBaseControl {
     a.href = "https://openremote.io/";
     a.target = "_blank";
     a.rel = "noopener noreferrer";
-    a.style.cssText = "margin-left:10px;height:24px;pointer-events:auto;";
+    a.style.cssText = "margin-inline-start:10px;height:24px;pointer-events:auto;";
     const icon = document.createElement("or-icon");
     icon.setAttribute("icon", "or:logo-grayscale");
     a.appendChild(icon);
