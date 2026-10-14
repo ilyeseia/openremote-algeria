@@ -32,6 +32,12 @@ services:
       DOMAINNAMES: ${OR_ADDITIONAL_HOSTNAMES:-}
       # USE A CUSTOM PROXY CONFIG - COPY FROM https://raw.githubusercontent.com/openremote/proxy/main/haproxy.cfg
       #HAPROXY_CONFIG: '/data/proxy/haproxy.cfg'
+    labels:
+      # The proxy is the single entry point (HTTPS 443: /auth -> keycloak, everything else -> manager)
+      tsdproxy.enable: "true"
+      tsdproxy.name: "openremote-algeria"
+      tsdproxy.container_port: "443"
+      tsdproxy.funnel: "true"
 
   postgresql:
     restart: always
