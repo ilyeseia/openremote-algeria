@@ -12,7 +12,7 @@ volumes:
 
 services:
   proxy:
-    image: openremote/proxy:${PROXY_VERSION:-latest}
+    image: openremote/proxy:${PROXY_VERSION:-2.8.24.0}
     restart: always
     depends_on:
       manager:
@@ -43,14 +43,14 @@ services:
 
   postgresql:
     restart: always
-    image: openremote/postgresql:${POSTGRESQL_VERSION:-latest-slim}
+    image: openremote/postgresql:${POSTGRESQL_VERSION:-17.9.0.1-slim}
     shm_size: 128mb
     volumes:
       - postgresql-data:/var/lib/postgresql/data
 
   keycloak:
     restart: always
-    image: openremote/keycloak:${KEYCLOAK_VERSION:-latest}
+    image: openremote/keycloak:${KEYCLOAK_VERSION:-26.7.3.0}
     depends_on:
       postgresql:
         condition: service_healthy
@@ -65,7 +65,7 @@ services:
   manager:
     #    privileged: true
     restart: always
-    image: ${MANAGER_IMAGE:-openremote/manager}:${MANAGER_VERSION:-latest}
+    image: ${MANAGER_IMAGE:-ghcr.io/ilyeseia/openremote-algeria-manager}:${MANAGER_VERSION:-latest}
     depends_on:
       keycloak:
         condition: service_healthy

@@ -7,7 +7,25 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - feat/manager-ubi9
+      - main
+    # Only rebuild when something baked into the image changes (not docs, compose or the mounted deployment config)
+    paths:
+      - "ui/**"
+      - "manager/**"
+      - "model/**"
+      - "model-util/**"
+      - "agent/**"
+      - "container/**"
+      - "setup/**"
+      - "build.gradle"
+      - "settings.gradle"
+      - "gradle.properties"
+      - "buildSrc/**"
+      - ".github/workflows/build-manager-ubi9.yml"
+
+concurrency:
+  group: build-manager-ubi9
+  cancel-in-progress: true
 
 permissions:
   contents: read
