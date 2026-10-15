@@ -19,7 +19,7 @@
 // Dependency free tests, run with `node --test test/` (Node 22.18+ strips the TypeScript types itself)
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { join } from "node:path";
 import {
@@ -153,4 +153,35 @@ test("should write Arabic as Arabic rather than leaving English text behind", ()
     JSON.stringify(["rulesLanguages", "JAVASCRIPT"]),
     JSON.stringify(["units", "inch_mercury"]),
   ].sort());
+});
+
+// Every asset type, attribute, meta item and value type defined by the backend must have an Arabic label,
+// otherwise the UI falls back to the English sentence-cased identifier.
+function javaFiles(dir) {
+  return readdirSync(dir).flatMap((name) => {
+    const path = join(dir, name);
+    return statSync(path).isDirectory() ? javaFiles(path) : path.endsWith(".java") ? [path] : [];
+  });
+}
+
+test("should have an Arabic label for every backend asset type, attribute, meta item and value type", (t) => {
+  const repoRoot = fileURLToPath(new URL("../../../../", import.meta.url));
+  const roots = ["model", "agent", "manager"].map((m) => join(repoRoot, m, "src/main/java")).filter(existsSync);
+  if (roots.length < 3) {
+    t.skip("backend sources are not available");
+    return;
+  }
+  const found = { asset: new Set(), attribute: new Set(), meta: new Set(), value: new Set() };
+  for (const file of roots.flatMap(javaFiles)) {
+    const source = readFileSync(file, "utf8");
+    for (const m of source.matchAll(/new AttributeDescriptor<[^>]*>\(\s*"([^"]+)"/g)) found.attribute.add(m[1]);
+    for (const m of source.matchAll(/new ValueDescriptor<[^>]*>\(\s*"([^"]+)"/g)) found.value.add(m[1]);
+    for (const m of source.matchAll(/new MetaItemDescriptor<[^>]*>\(\s*"([^"]+)"/g)) found.meta.add(m[1]);
+    for (const m of source.matchAll(/public\s+class\s+(\w+)\s+extends\s+(\w*Asset|Agent<[^{]*|\w+Agent)/g)) found.asset.add(m[1]);
+  }
+  const ar = loadLocale("ar");
+  const missing = Object.entries(found).flatMap(([group, names]) =>
+    [...names].filter((name) => !ar.get(JSON.stringify(["label", group, name]))).map((name) => `label.${group}.${name}`)
+  );
+  assert.deepEqual(missing.sort(), []);
 });

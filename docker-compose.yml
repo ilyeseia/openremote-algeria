@@ -88,6 +88,8 @@ services:
       OR_ADDITIONAL_HOSTNAMES:
       OR_SSL_PORT: ${OR_SSL_PORT:--1}
       OR_DEV_MODE: ${OR_DEV_MODE:-false}
+      # Time zone of the manager JVM (rules, schedules, logs); set OR_TIMEZONE to change it
+      TZ: ${OR_TIMEZONE:-Africa/Algiers}
 
       # Opt-in OpenTelemetry tracing to a local Alloy OTLP/HTTP receiver.
       OTEL_JAVAAGENT_ENABLED: ${OTEL_JAVAAGENT_ENABLED:-false}
