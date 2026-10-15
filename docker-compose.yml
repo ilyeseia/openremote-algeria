@@ -108,3 +108,5 @@ services:
       OR_SETUP_IMPORT_DEMO_AGENT_VELBUS:
     volumes:
       - manager-data:/storage
+      # Map centred on Algeria (the bundled vector tiles only cover Rotterdam)
+      - ./deployment/map/mapsettings.json:/deployment/map/mapsettings.json:ro
