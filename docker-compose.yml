@@ -37,6 +37,8 @@ services:
       tsdproxy.enable: "true"
       tsdproxy.name: "openremote-algeria"
       tsdproxy.container_port: "443"
+      tsdproxy.scheme: "https"
+      tsdproxy.tlsvalidate: "false" # the proxy uses a self-signed certificate
       tsdproxy.funnel: "true"
 
   postgresql:
