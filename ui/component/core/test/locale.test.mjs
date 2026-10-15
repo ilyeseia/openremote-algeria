@@ -164,7 +164,8 @@ function javaFiles(dir) {
   });
 }
 
-test("should have an Arabic label for every backend asset type, attribute, meta item and value type", (t) => {
+for (const lang of ["ar", "fr"]) {
+test(`should have a ${lang} label for every backend asset type, attribute, meta item and value type`, (t) => {
   const repoRoot = fileURLToPath(new URL("../../../../", import.meta.url));
   const roots = ["model", "agent", "manager"].map((m) => join(repoRoot, m, "src/main/java")).filter(existsSync);
   if (roots.length < 3) {
@@ -179,9 +180,10 @@ test("should have an Arabic label for every backend asset type, attribute, meta 
     for (const m of source.matchAll(/new MetaItemDescriptor<[^>]*>\(\s*"([^"]+)"/g)) found.meta.add(m[1]);
     for (const m of source.matchAll(/public\s+class\s+(\w+)\s+extends\s+(\w*Asset|Agent<[^{]*|\w+Agent)/g)) found.asset.add(m[1]);
   }
-  const ar = loadLocale("ar");
+  const labels = loadLocale(lang);
   const missing = Object.entries(found).flatMap(([group, names]) =>
-    [...names].filter((name) => !ar.get(JSON.stringify(["label", group, name]))).map((name) => `label.${group}.${name}`)
+    [...names].filter((name) => !labels.get(JSON.stringify(["label", group, name]))).map((name) => `label.${group}.${name}`)
   );
   assert.deepEqual(missing.sort(), []);
 });
+}
